@@ -1,12 +1,10 @@
 import { useState } from "react"
 import "../styles/login.css";
-import { useNavigate } from "react-router-dom";
 
 export const Login = (props)=>{
 
     const[username, setUsername] = useState("")
     const[password, setPassword] = useState("")
-    const navigate = useNavigate()
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value)
@@ -27,9 +25,7 @@ export const Login = (props)=>{
         </div>
         
         <div className="logInBtn">
-            <button onClick = {() => {
-                navigate("/home")
-                props.handleChange(username, password)}} className="btn">Log In</button>
+            <button onClick = {() => props.handleChange(username, password)} className="btn">Log In</button>
         </div>
     </div>
     )
